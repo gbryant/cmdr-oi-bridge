@@ -1,0 +1,9 @@
+target = "r4"
+
+[module.loco-bridge]
+addr = 66
+port = 1
+baud = 115200
+brc = 4
+
+[module.wifi]
