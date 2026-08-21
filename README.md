@@ -31,7 +31,8 @@ pio device monitor -e cmdr-oi-bridge
 
 ## Updating the commander framework
 
-Framework changes live in the commander repo; adopt the latest with **`cmdr pull`**
-(rebuild after). The commander version is the `lib_deps` git ref in `platformio.ini`
-(`…/commander.git` = latest default branch; append `#v1.2.0` to pin a release). Don't
-depend on a local commander checkout as a normal workflow.
+This project pins commander to a release tag — the `#v1.0` on the `lib_deps` git ref
+in `platformio.ini`. `cmdr pull` re-fetches that same tag, so on its own it changes
+nothing; to adopt a newer release, bump the `#tag` (e.g. `#v1.1`), then `cmdr pull`
+and rebuild. Dropping the `#tag` floats on the default branch instead. Don't depend
+on a local commander checkout as a normal workflow.
