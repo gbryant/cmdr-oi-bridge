@@ -19,14 +19,25 @@ prefix marks commander consumers so they don't need an umbrella folder.
 
 ## Setup
 
+Prereqs: PlatformIO and the `cmdr` tool — commander's
+[getting-started guide](https://github.com/gbryant/commander/blob/main/docs/getting-started.md)
+covers installing both.
+
 ```bash
 cp secrets.h.example secrets.h     # then fill in your WiFi
-pio run -e cmdr-oi-bridge          # build  (the bum/build/... wrappers are gitignored)
+cmdr regen                         # re-emit the dev scripts (bum/build/upload/monitor/bum-ota are gitignored)
+./bum                              # build + upload + monitor
+./bum-ota                          # wireless OTA (cmdr-oi-bridge.local)
+```
+
+The wrappers are gitignored rather than committed, so a fresh clone starts without
+them — `cmdr regen` writes them from the current templates. If you'd rather not use
+them, raw PlatformIO works just as well:
+
+```bash
+pio run -e cmdr-oi-bridge
 pio run -e cmdr-oi-bridge -t upload
 pio device monitor -e cmdr-oi-bridge
-# or, if the cmdr-generated wrappers are present locally:
-./bum        # build + upload + monitor
-./bum-ota    # wireless OTA (cmdr-oi-bridge.local)
 ```
 
 ## Updating the commander framework
