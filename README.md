@@ -7,8 +7,7 @@ over the wire, forwarding `CMD_LOCO_*` to the Roomba over `Serial1` and serving 
 sensor snapshot. Also provides the `oi` command, a remote console, and WiFi/telnet/OTA.
 
 This is the **PlatformIO** flavor of a commander consumer (Arduino-framework targets use
-PlatformIO + `lib_deps`; Pico/ESP32/STM32 use CMake + `FetchContent`). Naming: a `cmdr-`
-prefix marks commander consumers so they don't need an umbrella folder.
+PlatformIO + `lib_deps`; Pico/ESP32/STM32 use CMake + `FetchContent`).
 
 ## Hardware
 
